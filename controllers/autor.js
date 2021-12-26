@@ -28,7 +28,6 @@ exports.getAutor = async (req, res, next) =>{
 		next(new ErrorResponse("No se proceso la consulta de autores" + err.message, 404));
 	}
 
-
 }
 
 exports.getAutorById = async (req, res, next) =>{

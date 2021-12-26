@@ -14,7 +14,7 @@ const UsuarioShema = new mongoose.Schema({
 		
 	},
 	userName: {
-		type: String,
+		type: String, 
 		required:[true, 'Por favor ingrese un userName'],
 		
 	},

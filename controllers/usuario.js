@@ -1,6 +1,7 @@
+
 const Usuario = require('../models/Usuario');
 const ErrorResponse = require('../helper/errorResponse')
-
+const transporter = require('../config/email')
 exports.registrarUsuario = async (req, res, next) =>{
 	try{
 		
@@ -95,3 +96,28 @@ exports.getUsuario = async (req, res, next) =>{
 	
 }
 
+exports.sendEmail = async (req, res, next) =>{
+
+	const {emaildestino} = req.body;
+
+	try{
+		  // send mail with defined transport object
+	  await transporter.sendMail({
+	    from: '"Fred Foo 👻" <jhonmitchelupn@gmail.com>', // sender address
+	    to: emaildestino, // list of receivers
+	    subject: "Recuperar contraseña", // Subject line
+	    text: "www.micontraseña.com.pe/passwordnuevo1561316s66545646" // plain text body
+	
+	  });
+
+	  res.status(200).json({
+					status: 200,
+					mensaje: "El mensaje se envio con éxito"
+				});
+
+	}
+	catch(err){
+		next(new ErrorResponse('No se envio el email', 400));
+	}
+	
+}

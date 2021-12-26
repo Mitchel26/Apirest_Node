@@ -18,12 +18,12 @@ exports.seguridad = async (req, res, next) =>{
 	try{
 		
 		const decoded = jwt.verify(token,process.env.JWT_SECRET_WORD);
-
+		console.log(decoded);
 
 		const usuariobd = await Usuario.findOne({userName: decoded.username});
 		
 		req.usuario = usuariobd
-
+		console.log(req.usuario);
 		next();
 	}
 	catch(err){
