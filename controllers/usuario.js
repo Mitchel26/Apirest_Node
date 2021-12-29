@@ -103,10 +103,10 @@ exports.sendEmail = async (req, res, next) =>{
 	try{
 		  // send mail with defined transport object
 	  await transporter.sendMail({
-	    from: '"Fred Foo 👻" <jhonmitchelupn@gmail.com>', // sender address
+	    from: '"Mensaje de Soporte 👻" <jhonmitchelupn@gmail.com>', // sender address
 	    to: emaildestino, // list of receivers
 	    subject: "Recuperar contraseña", // Subject line
-	    text: "www.micontraseña.com.pe/passwordnuevo1561316s66545646" // plain text body
+	    text: "www.micontraseña.com.pe/passwordnuevo1561316s66545646456456" // plain text body
 	
 	  });
 
